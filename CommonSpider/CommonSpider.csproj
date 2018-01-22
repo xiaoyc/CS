@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSpider.DBHelper\CommonSpider.DBHelper.csproj" />
+    <ProjectReference Include="..\CommonSpider.JVideo\CommonSpider.JVideo.csproj" />
+  </ItemGroup>
+
+</Project>
