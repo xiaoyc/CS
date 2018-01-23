@@ -1,5 +1,5 @@
 ﻿using CommonSpider.DBHelper;
-using CommonSpider.JVideo;
+//using CommonSpider.JVideo;
 using System;
 
 namespace CommonSpider
