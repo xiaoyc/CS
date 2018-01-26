@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  commonspider:
+    image: commonspider
+    build:
+      context: .
+      dockerfile: CommonSpider/Dockerfile

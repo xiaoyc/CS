@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace CommonSpider.DBHelper
 {
-    public class API
+    public class PostService
     {
 
         public int InsertOrUpdatePost(Post post)
@@ -34,22 +34,30 @@ namespace CommonSpider.DBHelper
 
         }
 
-        public IList<Post> GetAllPosts()
+        public IList<Post> GetDraftPosts()
         {
             var client = new RestClient("http://localhost:5366");
 
-            var request = new RestRequest("api/post/getallposts", Method.GET);
-            //request.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
+            var request = new RestRequest("api/post/GetDraftPosts", Method.GET);
 
-            IRestResponse response = client.Execute(request);
+            request.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
 
-            var ttt = response.Content;
-            var posts = JsonConvert.DeserializeObject<List<Post>>(response.Content);// response.Content;
+            IRestResponse<List<Post>> response = client.Execute<List<Post>>(request);
 
-            return posts;
+            return response.Data;
+        }
 
+        public IList<Post> GetAllReadyPosts()
+        {
+            var client = new RestClient("http://localhost:5366");
 
-          
+            var request = new RestRequest("api/post/GetAllReadyPosts", Method.GET);
+
+            request.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
+
+            IRestResponse<List<Post>> response = client.Execute<List<Post>>(request);
+
+            return response.Data;
         }
     }
 }

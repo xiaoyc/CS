@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CommonSpider.DBHelper\CommonSpider.DBHelper.csproj" />
+    <ProjectReference Include="..\CommonSpider.JVideoSinglePage\CommonSpider.JVideoSinglePage.csproj" />
     <ProjectReference Include="..\CommonSpider.JVideo\CommonSpider.JVideo.csproj" />
   </ItemGroup>
 

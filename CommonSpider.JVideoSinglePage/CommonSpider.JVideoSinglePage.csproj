@@ -4,4 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DotnetSpider2.Core" Version="2.4.1" />
+    <PackageReference Include="DotnetSpider2.Extension" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSpider.DBHelper\CommonSpider.DBHelper.csproj" />
+  </ItemGroup>
+
 </Project>

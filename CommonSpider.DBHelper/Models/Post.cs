@@ -18,7 +18,7 @@ namespace CommonSpider.DBHelper.Models
         public int OriginalPageId { get; set; }
         public long CategoryId { get; set; }
 
- 
+        public bool IsDraft { get; set; }
         public string CategoryName { get; set; }
 
 

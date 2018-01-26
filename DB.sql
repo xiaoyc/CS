@@ -1,7 +1,7 @@
 
 create database spider
 
-create table Post
+drop table Post
 (
 Id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 Title nvarchar(500),
@@ -12,9 +12,13 @@ Image longblob ,
 CategoryId int references Category(Id),
 OriginalPageUrl nvarchar(1000),
 OriginalPageId int,
+IsDraft bit default 1,
 CreateTime datetime 
 )
 
+
+alter table post 
+add IsDraft bit default 1
 INSERT INTO `resource2`.`category`
 (
 `Title`)
@@ -225,6 +229,94 @@ select * , title2= '33' from post
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select * from post where isdraft=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select p1.*  ,GROUP_CONCAT(actor.name SEPARATOR ', ')  as actors  from (SELECT post.* ,GROUP_CONCAT(tag.Title SEPARATOR ', ')  as tags ,
+                                     category.title as categoryName
+                                     FROM post 
+                                    join posttag on post.id = posttag.postid
+                                    join tag on tag.id = posttag.TagId
+                                    join category on category.id = post.categoryId
+                                    where not exists ( select 1 from jPost where title = post.title )
+                                    ) as p1
+                                    join postactor on p1.id = postactor.postid
+                                    join actor on actor.id = postactor.actorId
+                                    GROUP BY p1.id
+
+
+
+
+SELECT post.* ,GROUP_CONCAT(tag.Title SEPARATOR ', ')  as tags ,
+                                     category.title as categoryName
+                                     FROM post where not exists ( select 1 from jPost where title = post.title )
+                                    join posttag on post.id = posttag.postid
+                                    join tag on tag.id = posttag.TagId
+                                    join category on category.id = post.categoryId
+ where not exists ( select 1 from jPost where title = post.title )
+
+
+
+
+
+
+
+
+
+
+
+SELECT post.* ,GROUP_CONCAT(tag.Title SEPARATOR ', ')  as tags ,
+                                     category.title as categoryName
+                                     FROM post 
+                                    join posttag on post.id = posttag.postid
+                                    join tag on tag.id = posttag.TagId
+                                    join category on category.id = post.categoryId
+where not exists ( select 1 from jPost where title = post.title )
+
+
+
+select  *    FROM post where not exists ( select 1 from jPost where title = post.title )
 
 
 

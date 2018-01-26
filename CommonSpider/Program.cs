@@ -1,7 +1,10 @@
 ﻿using CommonSpider.DBHelper;
+using NetworkCrawlerManager.Core;
 //using CommonSpider.JVideo;
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 namespace CommonSpider
 {
@@ -11,11 +14,20 @@ namespace CommonSpider
         {
             //JVideoSpider.Run();
 
-            API api = new API();
-            api.GetAllPosts();
+            //PostService api = new PostService();
+            //api.GetAllPosts();
             //api.InsertPost(null);
             //Console.WriteLine(HashPassword("admin"));
 
+            Console.WriteLine("aa");
+
+            List<string> list_lines = new List<string>();
+
+          
+                JiraSpider.Run();
+         
+
+           
 
             Console.Read();
         }
