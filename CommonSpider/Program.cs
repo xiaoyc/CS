@@ -19,15 +19,15 @@ namespace CommonSpider
             //api.InsertPost(null);
             //Console.WriteLine(HashPassword("admin"));
 
-            Console.WriteLine("aa");
+            //Console.WriteLine("aa");
 
-            List<string> list_lines = new List<string>();
+            //List<string> list_lines = new List<string>();
 
-          
-                JiraSpider.Run();
-         
 
-           
+            //  JiraSpider.Run();
+
+
+            Console.WriteLine("Hello Docker !!!!!");
 
             Console.Read();
         }
